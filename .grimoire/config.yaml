@@ -9,7 +9,19 @@ project:
   caveman: lite
 features_dir: features
 decisions_dir: .grimoire/decisions
-tools: {}
+tools:
+  lint:
+    name: flake8
+    command: uv run flake8 src/ tests/
+  format:
+    name: black
+    check_command: uv run black --check src/ tests/
+  complexity:
+    name: radon
+    command: uv run radon cc . -a -nc
+  secrets:
+    name: gitleaks
+    check_command: gitleaks detect --no-git
 checks:
   - lint
   - format

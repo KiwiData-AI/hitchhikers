@@ -60,10 +60,14 @@ class KiwiClient:
             self._request("GET", f"/api/v2/dais/documents/{document_id}")
         )
 
-    def get_document_attributes(self, document_id: str) -> list[ExtractionPayloadWidgetOut]:
+    def get_document_attributes(
+        self, document_id: str
+    ) -> list[ExtractionPayloadWidgetOut]:
         return [
             ExtractionPayloadWidgetOut.model_validate(item)
-            for item in self._request("GET", f"/api/v2/dais/documents/{document_id}/attributes")
+            for item in self._request(
+                "GET", f"/api/v2/dais/documents/{document_id}/attributes"
+            )
         ]
 
     def close(self):

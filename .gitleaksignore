@@ -1,0 +1,2 @@
+# False positive: bcrypt/argon2 in grimoire skill docs is not a secret
+.claude/skills/grimoire-plan/SKILL.md:generic-api-key:159
