@@ -11,6 +11,7 @@ license = { text = "MIT" }
 dependencies = [
     "httpx==0.28.1",
     "pydantic==2.13.4",
+    "tenacity==8.5.0",
 ]
 
 [project.optional-dependencies]
@@ -21,6 +22,7 @@ dev = [
     "black==26.5.1",
     "flake8==7.3.0",
     "radon==6.0.1",
+    "pyright==1.1.409",
 ]
 
 [tool.setuptools.packages.find]
