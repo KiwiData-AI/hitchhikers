@@ -8,7 +8,7 @@ Don't panic. This is the guide.
 
 The Kiwi Data Python reference implementation — a working example of how to integrate with the Kiwi Data document processing API.
 
-[![PyPI](https://img.shields.io/pypi/v/hitchhikers)](https://pypi.org/project/hitchhikers/) [![CI](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml/badge.svg)](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PyPI](https://img.shields.io/pypi/v/hitchhikers)](https://pypi.org/project/hitchhikers/) [![CI](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml/badge.svg)](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml) [![codecov](https://codecov.io/gh/KiwiData-AI/hitchhikers/branch/main/graph/badge.svg)](https://codecov.io/gh/KiwiData-AI/hitchhikers) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
 

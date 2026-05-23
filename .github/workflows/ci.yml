@@ -26,7 +26,13 @@ jobs:
         run: uv run black --check src/ tests/
 
       - name: Test
-        run: uv run pytest --cov=hitchhikers --cov-report=term-missing
+        run: uv run pytest --cov=hitchhikers --cov-report=term-missing --cov-report=xml
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage.xml
+          fail_ci_if_error: false
 
   security:
     runs-on: ubuntu-latest
