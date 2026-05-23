@@ -17,16 +17,16 @@ jobs:
           python-version: "3.13"
 
       - name: Install dependencies
-        run: uv pip install -e ".[dev]" --system
+        run: uv sync --extra dev
 
       - name: Lint
-        run: flake8 src/ tests/
+        run: uv run flake8 src/ tests/
 
       - name: Format check
-        run: black --check src/ tests/
+        run: uv run black --check src/ tests/
 
       - name: Test
-        run: pytest --cov=hitchhikers --cov-report=term-missing
+        run: uv run pytest --cov=hitchhikers --cov-report=term-missing
 
   security:
     runs-on: ubuntu-latest
@@ -37,11 +37,11 @@ jobs:
         with:
           python-version: "3.13"
 
-      - name: Install grimoire
-        run: pip install grimoire-cli 2>/dev/null || true
+      - name: Install dependencies
+        run: uv sync --extra dev
 
       - name: Dependency audit
-        run: uv pip install -e ".[dev]" --system && pip-audit
+        run: uv run pip-audit
 
       - name: Security + best practices
         if: ${{ hashFiles('.grimoire/config.yaml') != '' }}
