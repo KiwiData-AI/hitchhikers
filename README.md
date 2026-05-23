@@ -4,6 +4,8 @@ Don't panic. This is the guide.
 
 The Kiwi Data Python reference implementation — a working example of how to integrate with the Kiwi Data document processing API.
 
+[![PyPI](https://img.shields.io/pypi/v/hitchhikers)](https://pypi.org/project/hitchhikers/) [![CI](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml/badge.svg)](https://github.com/KiwiData-AI/hitchhikers/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 ---
 
 ## What Kiwi Data does
@@ -199,6 +201,10 @@ pyright src
 Keep commits atomic — one logical change per commit. Don't bundle unrelated fixes.
 
 **Branch naming:** `feat/short-description`, `fix/short-description`.
+
+**Changelog is automatic.** Commit messages feed [git-cliff](https://git-cliff.org) — `CHANGELOG.md` updates itself on every release. Write good commit messages; the changelog writes itself.
+
+See [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ---
 
