@@ -1,0 +1,4 @@
+# False positive: bcrypt/argon2 in grimoire skill docs is not a secret
+.claude/skills/grimoire-plan/SKILL.md:generic-api-key:159
+# .env is gitignored — real key, not a committed secret
+.env:generic-api-key:1

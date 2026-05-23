@@ -1,0 +1,34 @@
+version: 1
+project:
+  commit_style: conventional
+  agents:
+    - claude
+  integrations:
+    codebase_memory_mcp: true
+    caveman_plugin: true
+  caveman: lite
+features_dir: features
+decisions_dir: .grimoire/decisions
+tools:
+  lint:
+    name: flake8
+    command: uv run flake8 src/ tests/
+  format:
+    name: black
+    check_command: uv run black --check src/ tests/
+  complexity:
+    name: radon
+    command: uv run radon cc . -a -nc
+  secrets:
+    name: gitleaks
+    check_command: gitleaks detect --no-git
+checks:
+  - lint
+  - format
+  - complexity
+  - secrets
+llm:
+  thinking:
+    command: claude
+  coding:
+    command: claude
