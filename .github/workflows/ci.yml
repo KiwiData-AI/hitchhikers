@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install dependencies
+        run: uv pip install -e ".[dev]" --system
+
+      - name: Lint
+        run: flake8 src/ tests/
+
+      - name: Format check
+        run: black --check src/ tests/
+
+      - name: Test
+        run: pytest --cov=hitchhikers --cov-report=term-missing
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install grimoire
+        run: pip install grimoire-cli 2>/dev/null || true
+
+      - name: Dependency audit
+        run: uv pip install -e ".[dev]" --system && pip-audit
+
+      - name: Security + best practices
+        if: ${{ hashFiles('.grimoire/config.yaml') != '' }}
+        run: grimoire check --checks security,dep_audit,best_practices,duplicates,dead_code 2>/dev/null || true

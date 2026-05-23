@@ -1,0 +1,22 @@
+version: 1
+project:
+  commit_style: conventional
+  agents:
+    - claude
+  integrations:
+    codebase_memory_mcp: true
+    caveman_plugin: true
+  caveman: lite
+features_dir: features
+decisions_dir: .grimoire/decisions
+tools: {}
+checks:
+  - lint
+  - format
+  - complexity
+  - secrets
+llm:
+  thinking:
+    command: claude
+  coding:
+    command: claude
