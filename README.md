@@ -1,5 +1,9 @@
 # hitchhikers 🐦
 
+<p align="center">
+  <img src="assets/logo.png" alt="hitchhikers logo" width="300" />
+</p>
+
 Don't panic. This is the guide.
 
 The Kiwi Data Python reference implementation — a working example of how to integrate with the Kiwi Data document processing API.
