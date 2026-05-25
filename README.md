@@ -68,7 +68,7 @@ client = KiwiClient(api_key="your-api-key")
 ```python
 doc = client.upload_document(
     file_path="contract.pdf",
-    doc_type="contract",
+    doc_type=None,
     external_id="CRM-12345",  # your internal record ID — recommended for idempotency
 )
 print(doc.document_id)
